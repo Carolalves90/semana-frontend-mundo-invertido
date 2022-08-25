@@ -21,5 +21,17 @@ btnSubscribe.addEventListener('click', async () => {
     //Salvar no banco de dados
     const subscriptionId = await subscribeToHellfireClub(subscription)
     console.log(`Inscrito com sucesso: ${subscriptionId}`)
+
+    txtName.value = ''
+    txtEmail.value = ''
+    txtLevel.value = ''
+    txtCharacter.value = ''
 })
 
+//listando as atualizações no Browser
+async function loadData() {
+    const subscriptions = await getHellFireClubSubscriptions()
+    console.log(subscriptions)
+}
+
+loadData()
